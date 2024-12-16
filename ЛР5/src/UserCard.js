@@ -1,13 +1,25 @@
-
 import React, { useState } from 'react';
-function UserCard(props) {
-   
-    return (
-        <div>
-            <p>  Привет, {props.name}! Ваш возраст {props.age} </p>  
-        </div>
-    );
+
+function UserCard() {
+  const [input, setInput] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Отправлено: ${input}`);
+    setInput('');
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Введите текст"
+      />
+      <button type="submit">Отправить</button>
+    </form>
+  );
 }
+
 export default UserCard;
-
-
