@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+p {
+    color: green;
+    text-align: center;
+    
+}
+
+h1 {
+    color: blue;
+}
+
+.box {
+    background-color: lightgray;;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a {
+    color: red;
+}
+
+.text-block {
+    margin: 20px;  
+    padding: 15px; 
+    background-color: #f8f8f8; 
+    border: 1px solid #ccc; 
+}

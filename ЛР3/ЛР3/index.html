@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Примеры JavaScript</title>
+    <style>
+        /* Стили для скрываемого элемента */
+        #toggleElement {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="pageTitle">Заголовок страницы</h1>
+
+    <button onclick="changeBackgroundColor()">Изменить цвет фона</button>
+    
+    <button onclick="addElementToList()">Добавить элемент в список</button>
+    <ul id="myList"></ul>
+
+    <h2>Элементы массива:</h2>
+    <div id="arrayElements"></div>
+
+    <input type="number" id="numberInput" placeholder="Введите число">
+    <button onclick="checkEven()">Проверить на четность</button>
+    <p id="evenCheckResult"></p>
+
+    <button onclick="toggleElement()">Скрыть/Показать элемент</button>
+    <div id="toggleElement">Этот элемент можно скрыть или показать.</div>
+
+    <table border="1" id="myTable">
+        <thead>
+            <tr>
+                <th>Номер</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <button onclick="addRowToTable()">Добавить строку в таблицу</button>
+
+    <script>
+        // 1. Вывод чисел от 1 до 10
+        for (let i = 1; i <= 10; i++) {
+            console.log(i);
+        }
+
+        // 2. Функция для суммы двух чисел
+        function sum(a, b) {
+            return a + b;
+        }
+        
+        // 3. Изменение текста заголовка при загрузке страницы
+        window.onload = function() {
+            document.getElementById("pageTitle").innerText = "Заголовок изменен!";
+        }
+
+        // 4. Добавление элемента в конец списка
+        function addElementToList() {
+            const li = document.createElement("li");
+            li.textContent = "Новый элемент списка";
+            document.getElementById("myList").appendChild(li);
+        }
+
+        // 5. Массив с пятью элементами
+        const array = ["Элемент 1", "Элемент 2", "Элемент 3", "Элемент 4", "Элемент 5"];
+        const arrayElementsDiv = document.getElementById("arrayElements");
+        for (let i = 0; i < array.length; i++) {
+            const p = document.createElement("p");
+            p.textContent = array[i];
+            arrayElementsDiv.appendChild(p);
+        }
+
+        // 6. Проверка на четность
+        function checkEven() {
+            const number = parseInt(document.getElementById("numberInput").value);
+            const result = document.getElementById("evenCheckResult");
+            if (number % 2 === 0) {
+                result.innerText = "Число четное.";
+            } else {
+                result.innerText = "Число нечетное.";
+            }
+        }
+
+        // 7. Изменение цвета фона
+        function changeBackgroundColor() {
+            document.body.style.backgroundColor = document.body.style.backgroundColor === "lightblue" ? "" : "lightblue";
+        }
+
+        // 8. Добавление нового элемента в таблицу
+        function addRowToTable() {
+            const table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            const newCell = newRow.insertCell(0);
+            newCell.textContent = table.rows.length; // Номер строки
+        }
+
+        // 9. Изменение шрифта заголовка при наведении
+        document.getElementById("pageTitle").addEventListener("mouseover", function() {
+            this.style.fontFamily = "Arial, sans-serif";
+        });
+        
+        document.getElementById("pageTitle").addEventListener("mouseout", function() {
+            this.style.fontFamily = "initial";
+        });
+
+        // 10. Скрыть или показать элемент
+        function toggleElement() {
+            const element = document.getElementById("toggleElement");
+            element.style.display = element.style.display === "none" ? "block" : "none";
+        }
+    </script>
+
+</body>
+</html>
